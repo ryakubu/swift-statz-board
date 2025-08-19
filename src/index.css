@@ -74,19 +74,19 @@ All colors MUST be HSL.
     --popover: 240 10% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 262 90% 50%;
+    --primary: 243 75% 55%; /* Deep Indigo */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4% 16%;
+    --secondary:  215 20% 45%; /* Slate Gray */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 268 71% 65%;
+    --accent: 172 72% 40%;  /* Teal Green */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive:destructive: 0 84% 60%; /* Red */
     --destructive-foreground: 0 0% 100%;
 
     --border: 240 4% 16%;
