@@ -18,6 +18,14 @@ const Index = () => {
       gradient: "bg-gradient-success"
     },
     {
+      title: "Total Revenue",
+      value: "$67,890",
+      change: "+15.2% from last month",
+      changeType: "positive" as const,
+      icon: DollarSign,
+      gradient: "bg-gradient-success"
+    },
+    {
       title: "Active Users",
       value: "2,847",
       change: "+8.2% from last month",
@@ -69,7 +77,7 @@ const Index = () => {
               </div>
 
               {/* Statistics Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
                 {stats.map((stat, index) => (
                   <StatCard key={index} {...stat} />
                 ))}
