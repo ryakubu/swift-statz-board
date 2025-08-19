@@ -12,8 +12,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useSearch } from "./SearchContext";
 
 export function DashboardHeader() {
+  const { searchTerm, setSearchTerm } = useSearch();
+
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="flex h-16 items-center gap-4 px-6">
@@ -24,6 +27,8 @@ export function DashboardHeader() {
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search anything..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-8 bg-muted/50 border-0 focus-visible:ring-1"
             />
           </div>

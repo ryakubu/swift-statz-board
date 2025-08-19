@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, Filter, Download, MoreHorizontal } from "lucide-react";
+import { useSearch } from "./SearchContext";
 import {
   Table,
   TableBody,
@@ -107,13 +108,17 @@ const sampleData: Customer[] = [
 ];
 
 export function DataTable() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTerm } = useSearch();
+  const [localSearchTerm, setLocalSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
 
+  // Use global search term or local search term
+  const effectiveSearchTerm = searchTerm || localSearchTerm;
+
   const filteredData = sampleData.filter((customer) => {
-    const matchesSearch = customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         customer.id.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = customer.name.toLowerCase().includes(effectiveSearchTerm.toLowerCase()) ||
+                         customer.email.toLowerCase().includes(effectiveSearchTerm.toLowerCase()) ||
+                         customer.id.toLowerCase().includes(effectiveSearchTerm.toLowerCase());
     const matchesStatus = statusFilter === "all" || customer.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -137,8 +142,8 @@ export function DataTable() {
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search customers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={localSearchTerm}
+                onChange={(e) => setLocalSearchTerm(e.target.value)}
                 className="pl-8 w-full sm:w-64"
               />
             </div>

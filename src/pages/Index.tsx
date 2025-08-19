@@ -1,15 +1,16 @@
-import { DollarSign, Users, ShoppingCart, TrendingUp } from "lucide-react";
+import { DollarSign, Users, ShoppingCart, TrendingUp, UserCheck } from "lucide-react";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/dashboard/AppSidebar";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { DataTable } from "@/components/dashboard/DataTable";
 import { RecentActivity } from "@/components/dashboard/RecentActivity";
+import { SearchProvider } from "@/components/dashboard/SearchContext";
 
 const Index = () => {
   const stats = [
     {
-      title: "Total Revenue",
+      title: "Total Sales",
       value: "$54,239",
       change: "+12.5% from last month",
       changeType: "positive" as const,
@@ -23,6 +24,14 @@ const Index = () => {
       changeType: "positive" as const,
       icon: Users,
       gradient: "bg-gradient-info"
+    },
+    {
+      title: "Active Customers",
+      value: "1,892",
+      change: "+6.3% from last month",
+      changeType: "positive" as const,
+      icon: UserCheck,
+      gradient: "bg-gradient-secondary"
     },
     {
       title: "Orders",
@@ -43,11 +52,12 @@ const Index = () => {
   ];
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-background">
-        <AppSidebar />
-        <main className="flex-1 flex flex-col overflow-hidden">
-          <DashboardHeader />
+    <SearchProvider>
+      <SidebarProvider>
+        <div className="flex min-h-screen w-full bg-background">
+          <AppSidebar />
+          <main className="flex-1 flex flex-col overflow-hidden">
+            <DashboardHeader />
           <div className="flex-1 overflow-auto">
             <div className="p-6 space-y-6">
               {/* Welcome Section */}
@@ -59,7 +69,7 @@ const Index = () => {
               </div>
 
               {/* Statistics Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 {stats.map((stat, index) => (
                   <StatCard key={index} {...stat} />
                 ))}
@@ -79,9 +89,10 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </SidebarProvider>
+          </main>
+        </div>
+      </SidebarProvider>
+    </SearchProvider>
   );
 };
 
