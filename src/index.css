@@ -48,6 +48,7 @@ All colors MUST be HSL.
 
     /* Enhanced gradients */
     --gradient-primary: linear-gradient(135deg, hsl(262 90% 50%), hsl(268 71% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(262 83% 58%), hsl(255 71% 70%));
     --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
     --gradient-warning: linear-gradient(135deg, hsl(38 92% 50%), hsl(38 92% 60%));
     --gradient-info: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 63%));
@@ -102,6 +103,7 @@ All colors MUST be HSL.
 
     /* Enhanced gradients - dark mode */
     --gradient-primary: linear-gradient(135deg, hsl(262 90% 50%), hsl(268 71% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(262 83% 58%), hsl(255 71% 70%));
     --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
     --gradient-warning: linear-gradient(135deg, hsl(38 92% 50%), hsl(38 92% 60%));
     --gradient-info: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 63%));
