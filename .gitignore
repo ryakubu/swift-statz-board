@@ -1,3 +1,11 @@
+# Ignore coverage folder
+coverage/
+
+# Ignore zip files
+*.zip
+
+# Optional: ignore node_modules
+node_modules/
 # Logs
 logs
 *.log
